@@ -1,4 +1,36 @@
 
+// ═══ AUTO INIT DATABASE ═══
+const _fs2 = require('fs');
+const _initDir = (d) => { try { _fs2.mkdirSync(d, {recursive:true}); } catch(e){} };
+const _initDB2 = (p, d) => { try { if(!_fs2.existsSync(p)) _fs2.writeFileSync(p, d); } catch(e){} };
+_initDir('./lib/Database');
+_initDir('./engine/Database');
+_initDir('./engine/Storage');
+_initDir('./engine/tmp');
+_initDB2('./lib/Database/owner.json', '[]');
+_initDB2('./lib/Database/premium.json', '[]');
+_initDB2('./lib/Database/reseller.json', '[]');
+_initDB2('./lib/Database/idgrup.json', '[]');
+_initDB2('./lib/Database/idgrup2.json', '[]');
+_initDB2('./lib/Database/ptPanel.json', '[]');
+_initDB2('./lib/Database/ptPanel2.json', '[]');
+_initDB2('./lib/Database/murbug.json', '[]');
+_initDB2('./lib/Database/destination.json', '{"mode":"public"}');
+_initDB2('./engine/Database/afk.json', '{}');
+_initDB2('./engine/Storage/antilink.json', '[]');
+_initDB2('./engine/Storage/antilink2.json', '[]');
+_initDB2('./engine/Storage/peringatan.json', '{}');
+_initDB2('./engine/Storage/antilinkall.json', '[]');
+_initDB2('./engine/Storage/antisw.json', '[]');
+_initDB2('./engine/Storage/blockjpm.json', '[]');
+_initDB2('./engine/Storage/listidch.json', '[]');
+_initDB2('./engine/Storage/autoitss.json', '{}');
+_initDB2('./engine/Storage/idgrup.json', '[]');
+_initDB2('./engine/Storage/idgrup2.json', '[]');
+_initDB2('./engine/Storage/murbug.json', '[]');
+// ═════════════════════════
+
+
 // Auto buat folder & file database kalau belum ada
 const _initDB = (p, d) => { try { if(!require('fs').existsSync(p)) require('fs').writeFileSync(p, d); } catch(e){} };
 try { require('fs').mkdirSync('./lib/Database', {recursive:true}); } catch(e){}
@@ -215,10 +247,10 @@ try {
     const Murbug = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/murbug.json"))}catch(e){return []}})()
     const isMurbug = Murbug.includes(m.chat)
     // END
-    let antilinkGroups = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink.json'))}catch(e){return []}})();
-    let AntiLinkKick = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink2.json'))}catch(e){return []}})();
-    let userWarnings = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/peringatan.json'))}catch(e){return {}}})();
-    let AntiLinkAll = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilinkall.json'))}catch(e){return []}})();
+    let antilinkGroups = (()=>{try{return (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink.json'))}catch(e){return []}})()}catch(e){return []}})();
+    let AntiLinkKick = (()=>{try{return (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink2.json'))}catch(e){return []}})()}catch(e){return []}})();
+    let userWarnings = (()=>{try{return (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/peringatan.json'))}catch(e){return {}}})()}catch(e){return {}}})();
+    let AntiLinkAll = (()=>{try{return (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilinkall.json'))}catch(e){return []}})()}catch(e){return []}})();
     const generateMessageID = () => Math.floor(Math.random() * 1e10).toString();
     const cooldown = new Map();
     const { loadCooldowns, saveCooldowns } = require('../engine/Cooldowns')
