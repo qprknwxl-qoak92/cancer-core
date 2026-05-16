@@ -1,3 +1,21 @@
+
+// Auto buat folder & file database kalau belum ada
+const _initDB = (p, d) => { try { if(!require('fs').existsSync(p)) require('fs').writeFileSync(p, d); } catch(e){} };
+try { require('fs').mkdirSync('./lib/Database', {recursive:true}); } catch(e){}
+try { require('fs').mkdirSync('./engine/Storage', {recursive:true}); } catch(e){}
+_initDB('./lib/Database/owner.json', '[]');
+_initDB('./lib/Database/premium.json', '[]');
+_initDB('./lib/Database/reseller.json', '[]');
+_initDB('./lib/Database/idgrup.json', '[]');
+_initDB('./lib/Database/idgrup2.json', '[]');
+_initDB('./lib/Database/ptPanel.json', '[]');
+_initDB('./lib/Database/ptPanel2.json', '[]');
+_initDB('./lib/Database/murbug.json', '[]');
+_initDB('./engine/Storage/antilink.json', '[]');
+_initDB('./engine/Storage/antilink2.json', '[]');
+_initDB('./engine/Storage/peringatan.json', '{}');
+_initDB('./engine/Storage/antilinkall.json', '[]');
+
 /*
   ⚠️ Please Don't Change This Credit
   Official Script Cancer Trashflocks
@@ -146,8 +164,8 @@ try {
     const isDeveloper = nomerCreator.includes(normalizedSender);
     const DevNumber = nomerCreator.includes(normalizedSender);
     //=========================================//
-    const newOwner = JSON.parse(fs.readFileSync("./lib/Database/owner.json"))
-    const premium = JSON.parse(fs.readFileSync("./lib/Database/premium.json"))
+    const newOwner = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/owner.json"))}catch(e){return []}})()
+    const premium = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/premium.json"))}catch(e){return []}})()
     const isPremium = [botNumber.split('@')[0], buffer64base, ...nomerCreator, ...newOwner].includes(m.sender.split("@")[0]) ? true : premium.includes(m.sender) ? true : false
     const isOwner = [botNumber.split('@')[0], buffer64base, ...nomerCreator, ...global.owner].includes(m.sender.split("@")[0]) ? true : newOwner.includes(m.sender) ? true : false
     const args = body.trim().split(/ +/).slice(1);
@@ -180,27 +198,27 @@ try {
         return sock.getLidUser(jid)
     }
     // KHUSUS CPANEL =====
-    const unli = JSON.parse(fs.readFileSync("./lib/Database/reseller.json"))
+    const unli = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/reseller.json"))}catch(e){return []}})()
     const isUnli = unli.includes(m.chat)
-    const pler = JSON.parse(fs.readFileSync("./lib/Database/idgrup.json"))
+    const pler = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/idgrup.json"))}catch(e){return []}})()
     const jangan = isGroup ? pler.includes(m.chat) : false
-    const plerr = JSON.parse(fs.readFileSync("./lib/Database/idgrup2.json"))
+    const plerr = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/idgrup2.json"))}catch(e){return []}})()
     const jangan2 = isGroup ? plerr.includes(m.chat) : false
     const isUnlii = pler.includes(m.chat)
     const isUnli2 = plerr.includes(m.chat)
-    const ptpanel = JSON.parse(fs.readFileSync("./lib/Database/ptPanel.json"))
+    const ptpanel = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/ptPanel.json"))}catch(e){return []}})()
     const isPtpanel = [botNumber.split('@')[0], ...nomerCreator, ...global.owner].includes(m.sender.split("@")[0]) ? true : ptpanel.includes(m.sender) ? true : false
-    const ptpanel2 = JSON.parse(fs.readFileSync("./lib/Database/ptPanel2.json"))
+    const ptpanel2 = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/ptPanel2.json"))}catch(e){return []}})()
     const isPtpanel2 = [botNumber.split('@')[0], ...nomerCreator, ...global.owner].includes(m.sender.split("@")[0]) ? true : ptpanel2.includes(m.sender) ? true : false
     // END
     // KHUSUS COMMAND BUG
-    const Murbug = JSON.parse(fs.readFileSync("./lib/Database/murbug.json"))
+    const Murbug = (()=>{try{return JSON.parse(fs.readFileSync("./lib/Database/murbug.json"))}catch(e){return []}})()
     const isMurbug = Murbug.includes(m.chat)
     // END
-    let antilinkGroups = JSON.parse(fs.readFileSync('./engine/Storage/antilink.json'));
-    let AntiLinkKick = JSON.parse(fs.readFileSync('./engine/Storage/antilink2.json'));
-    let userWarnings = JSON.parse(fs.readFileSync('./engine/Storage/peringatan.json'));
-    let AntiLinkAll = JSON.parse(fs.readFileSync('./engine/Storage/antilinkall.json'));
+    let antilinkGroups = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink.json'))}catch(e){return []}})();
+    let AntiLinkKick = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilink2.json'))}catch(e){return []}})();
+    let userWarnings = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/peringatan.json'))}catch(e){return {}}})();
+    let AntiLinkAll = (()=>{try{return JSON.parse(fs.readFileSync('./engine/Storage/antilinkall.json'))}catch(e){return []}})();
     const generateMessageID = () => Math.floor(Math.random() * 1e10).toString();
     const cooldown = new Map();
     const { loadCooldowns, saveCooldowns } = require('../engine/Cooldowns')
