@@ -2026,7 +2026,7 @@ Kadang pakai emoji kalo butuh
         "https://files.catbox.moe/ta2dkc.jpg",
         "https://files.catbox.moe/ta2dkc.jpg",
         "https://files.catbox.moe/ta2dkc.jpg",
-        "https://files.catbox.moe/ta2dkc.jpg
+        "https://files.catbox.moe/ta2dkc.jpg"
       ]
       
     let CancerImg = Qphoto[Math.floor(Math.random() * Qphoto.length)];
