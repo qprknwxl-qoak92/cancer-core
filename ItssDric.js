@@ -485,8 +485,6 @@ try {
 Seseorang menghina owner kamu.
 
 Balas dengan:
-- toxic ke dia
-- langsung ulti aja
 - bela owner
 - savage dikit
 - warning ${chatData.warnings[m.sender]}/5
@@ -622,12 +620,7 @@ Balas dengan:
         let logic = `Nama kamu Cancer TrashFlocks Ai, Cowo.
 Owner kamu Itss Dric.
 - jika ada yang tanya kontak developermu suruh aja ketik .owner yaa
-- ga usah sopan
-- gunakan bahasa yang lumayan toxic 
-- asik in aja
-- kalo ada yang bilang cancer atau dric jelek dalam bahasa apapun, langsung aja ulti dia dan hina hina dia sampai ga bsa bicara, kalo dah diem ejek lagi
-- jika ditanya dimana owner mu tinggal jawab saja kepo lu asu
-- jika dia menanyakan tentang ai lain bilang aja, gw ya gw, ai lain ya lain ngapain lu tanya tanya
+- jika ditanya dimana owner mu tinggal jawab saja kepo lu
 - jika ditanya apa saja menu/fitur mu suruh ketik aja .menu yaa
 - jika bertemu owner mu sapa dia biar senang.
 
@@ -3309,15 +3302,15 @@ async function GB2(target) {
     }
     //═══════════════════════════════════//
     const Intronya =
-`☦ *${global.botname}*
+`✦ *${global.botname}*
 › ${ucapanWaktu}, *${pushname}*
 
-☩ *Developer*  : Itss Dric
-☩ *Versi*       : 9.9.9
-☩ *Mode*        : ${sock.public ? "Public" : "Self"}
-☩ *Status*      : ${isOwner ? "Owner" : isPremium ? "Premium" : "Free"}
-☩ *Runtime*    : ${RunTime}
-☩ *Features*   : ${totalFitur()} Fitur
+◈ *Developer*  : Itss Dric
+◈ *Versi*       : 9.9.9
+◈ *Mode*        : ${sock.public ? "Public" : "Self"}
+◈ *Status*      : ${isOwner ? "Owner" : isPremium ? "Premium" : "Free"}
+◈ *Runtime*    : ${RunTime}
+◈ *Features*   : ${totalFitur()} Fitur
 
 ⌬ ${global.footer}`;
 
@@ -3471,9 +3464,8 @@ async function GB2(target) {
         } else if (global.menuSetting === "buttonNew") {
             sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `✦ ${global.botname}`,
-                    body: { text: `${Intronya}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `⌬ ${global.footer}`,
                     thumbnail: global.thumb,
                     mentions: [m.sender],
                     contextInfo: {
@@ -3498,7 +3490,7 @@ async function GB2(target) {
                                 in_thread_buttons_limit: 3,
                                 divider_indices: [2, 5, 8],
                                 list_title: `${global.botname}`,
-                                button_title: "✨ Pilih Menu"
+                                button_title: "Pilih Menu"
                             },
                             tap_target_configuration: {
                                 title: "◈ Menu",
@@ -3512,14 +3504,14 @@ async function GB2(target) {
                             {
                                 name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "☠️ Bug Menu",
+                                    display_text: "⚔️ Bug Menu",
                                     id: `${prefix}bugmenu`
                                 })
                             },
                             {
                                 name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "👑 Owner Menu",
+                                    display_text: "Owner Menu",
                                     id: `${prefix}ownmenu`
                                 })
                             },
@@ -3540,7 +3532,7 @@ async function GB2(target) {
                             {
                                 name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "⚙️ Install Menu",
+                                    display_text: "🔧 Install Menu",
                                     id: `${prefix}instalmenu`
                                 })
                             },
@@ -3573,24 +3565,17 @@ async function GB2(target) {
                                 })
                             },
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 All Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
+                                    display_text: "WhatsApp Dev",
                                     url: `https://${global.nowa}`
                                 })
                             },
                             {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                    display_text: "Telegram Dev",
+                                    url: `https://${global.tele}`
                                 })
                             }
                         ]
@@ -3910,9 +3895,8 @@ async function GB2(target) {
   
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `📋 Semua Fitur`,
-                    body: { text: `📋 *Semua Fitur*\n\n${global.AllMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.AllMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -3927,31 +3911,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}sc`
                                 })
                             }
                         ]
@@ -3964,9 +3934,8 @@ async function GB2(target) {
         case 'ownermenu': case 'ownmenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `👑 Owner Menu`,
-                    body: { text: `👑 *Owner Menu*\n\n${global.OwnerMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.OwnerMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -3981,31 +3950,24 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
+                                    display_text: "Whatsapp Creator",
                                     url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                    display_text: "Credit",
+                                    id: `${prefix}tqto`
+                                })
+                            },
+                            {
+                                name: "quick_reply",
+                                buttonParamsJson: JSON.stringify({
+                                    display_text: "Buy Script",
+                                    id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4018,9 +3980,8 @@ async function GB2(target) {
         case 'bugmenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `☠️ Bug Menu`,
-                    body: { text: `☠️ *Bug Menu*\n\n${global.BugMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.BugMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4035,31 +3996,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}sc`
                                 })
                             }
                         ]
@@ -4072,9 +4019,8 @@ async function GB2(target) {
         case 'gamesmenu': case 'gamemenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `🎮 Games Menu`,
-                    body: { text: `🎮 *Games Menu*\n\n${global.GameMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.GameMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4089,31 +4035,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4127,9 +4059,8 @@ async function GB2(target) {
         case 'groupmenu': case 'grupmenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `🛡️ Group Menu`,
-                    body: { text: `🛡️ *Group Menu*\n\n${global.GroupMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.GroupMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4144,31 +4075,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4182,9 +4099,8 @@ async function GB2(target) {
         case 'panelmenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `🖥️ Panel Menu`,
-                    body: { text: `🖥️ *Panel Menu*\n\n${global.PanelMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.PanelMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4199,31 +4115,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4237,9 +4139,8 @@ async function GB2(target) {
         case 'instalmenu': case 'installmenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `⚙️ Install Menu`,
-                    body: { text: `⚙️ *Install Menu*\n\n${global.InstallMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.InstallMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4254,31 +4155,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4292,9 +4179,8 @@ async function GB2(target) {
         case 'paymentmenu': case 'paymenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `💳 Payment`,
-                    body: { text: `💳 *Payment*\n\n${global.GameMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.GameMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4309,31 +4195,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4347,9 +4219,8 @@ async function GB2(target) {
         case 'funmenu': case 'othermenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `📦 Other Menu`,
-                    body: { text: `📦 *Other Menu*\n\n${global.OtherMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.OtherMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4364,31 +4235,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -4402,9 +4259,8 @@ async function GB2(target) {
         case 'makemenu': case 'makermenu': {
             await sock.sendMessage(m.chat, {
                 interactiveMessage: {
-                    title: `🎨 Maker Menu`,
-                    body: { text: `🎨 *Maker Menu*\n\n${global.MakerMenu}` },
-                    footer: { text: `⌬ ${global.footer}` },
+                    title: `${Intronya}`,
+                    footer: `${global.MakerMenu}\n${global.footer}`,
                     thumbnail: global.thumb,
                     contextInfo: {
                         mentionedJid: [m.sender], 
@@ -4419,31 +4275,17 @@ async function GB2(target) {
                     nativeFlowMessage: {
                         buttons: [
                             {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "🏠 Main Menu",
-                                    id: `${prefix}menu`
-                                })
-                            },
-                            {
-                                name: "quick_reply",
-                                buttonParamsJson: JSON.stringify({
-                                    display_text: "📋 Semua Fitur",
-                                    id: `${prefix}allmenu`
-                                })
-                            },
-                            {
                                 name: "cta_url",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "💬 WhatsApp Dev",
-                                    url: `https://${global.nowa}`
+                                  display_text: "Whatsapp Creator",
+                                  url: `https://${global.nowa}`
                                 })
                             },
                             {
-                                name: "cta_url",
+                                name: "quick_reply",
                                 buttonParamsJson: JSON.stringify({
-                                    display_text: "✈️ Telegram Dev",
-                                    url: `https://t.me/XnnxDxC`
+                                  display_text: "Buy Script", 
+                                  id: `${prefix}buysc`
                                 })
                             }
                         ]
@@ -10242,7 +10084,7 @@ untuk menerjemahkan pesan yang dikutip.
           if (!isOwner && !isPremium) return reply(msg.owner);
         
           if (!text || !text.includes("|")) {
-            return reply(`${noticenya}\n${prefix + command} https://whatsapp.com/channel/0029VbCnFfzHwXbFKWeagV2x/136|😂,😍,🔥`);
+            return reply(`${noticenya}\n${prefix + command} https://whatsapp.com/channel/0029Vb6pIlxDTkKBpOvPqD22/136|😂,😍,🔥`);
           }
         
           const [link, emojiPart] = text.split("|").map(v => v.trim());
@@ -14643,18 +14485,18 @@ Bot Create By @ItssDric
                                     title: `—Automatic Attacking Target`,
                                     highlight_label: "High Risk",
                                     rows: [
-                                        { header: "▸ FORCE CLOSE", title: "‹!› Crash Invisible Attack", description: `Crashing Target With Invisible`, id: `${prefix}cancer-crash ${target} ${amount}` },
-                                        { header: "▸ BLANK", title: "‹!› Blank Ui Attack", description: `Target Will Be Blank Ui System`, id: `${prefix}cancer-blank ${target} ${amount}` },
-                                        { header: "▸ DELAY INVISIBLE", title: "‹!› Delay Hard Attack", description: `Whatsapp Target Will Be Delay`, id: `${prefix}cancer-delay ${target} ${amount}` },
-                                        { header: "▸ FREEZE", title: "‹!› Freeze Attack", description: `Freezing The Target's App`, id: `${prefix}cancer-freeze ${target} ${amount}` },
-                                        { header: "▸ COMBO", title: "‹!› Combo Attack", description: `Combining Multiple Attacks`, id: `${prefix}cancer-combo ${target} ${amount}` },
+                                        { header: "▸ FORCE CLOSE", title: "‹!› Crash Invisible Attack", description: `Crashing Target With Invisible`, id: `${prefix}glitch-crash ${target} ${amount}` },
+                                        { header: "▸ BLANK", title: "‹!› Blank Ui Attack", description: `Target Will Be Blank Ui System`, id: `${prefix}Glitch-blank ${target} ${amount}` },
+                                        { header: "▸ DELAY INVISIBLE", title: "‹!› Delay Hard Attack", description: `Whatsapp Target Will Be Delay`, id: `${prefix}glitch-delay ${target} ${amount}` },
+                                        { header: "▸ FREEZE", title: "‹!› Freeze Attack", description: `Freezing The Target's App`, id: `${prefix}glitch-freeze ${target} ${amount}` },
+                                        { header: "▸ COMBO", title: "‹!› Combo Attack", description: `Combining Multiple Attacks`, id: `${prefix}glitch-combo ${target} ${amount}` },
                                     ]
                                 },
                                 {
                                     title: `—IOS Crash Mode`,
                                     highlight_label: "Critical Risk",
                                     rows: [
-                                        { header: "▸ IOS CRASH", title: "‹!› iOS Crash Attack", description: `Crashing iOS Devices`, id: `${prefix}cancer-ios ${target} ${amount}` }
+                                        { header: "▸ IOS CRASH", title: "‹!› iOS Crash Attack", description: `Crashing iOS Devices`, id: `${prefix}glitch-ios ${target} ${amount}` }
                                     ]
                                 },
                                 {
@@ -14761,7 +14603,7 @@ Bot Create By @ItssDric
     }
     break
     //═════════════════════════════════════//
-    case 'cancer-group':
+    case 'glitch-group':
     case 'group-delay': {
         if (!isOwner && !isMurbug) return reply("Lu Siapa Bego? Khusus Premium");
         await reaction(m.chat, "♠️")
@@ -14828,7 +14670,7 @@ Bot Create By @ItssDric
             try {
                 for (let i = 0; i < 5; i++) {
                     await sock.sendMessage(gid, {
-                        text: `*BUG CLEARED BY ITSS DRIC*\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n${global.footer}`
+                        text: `*BUG CLEARED BY 💦${global.botname}*\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n${global.footer}`
                     })
                     await sleep(2000)
                 }
@@ -15007,7 +14849,7 @@ Bot Create By @ItssDric
     break;
     //═══════════════════════════════════//
     case 'crash-invis': case 'bug1': 
-    case 'cancer-crash': case 'crash': {
+    case 'glitch-crash': case 'crash': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15139,7 +14981,7 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'bug2': case 'cancer-delay': case 'delay-invis': {
+    case 'bug2': case 'glitch-delay': case 'delay-invis': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15208,7 +15050,7 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'bug5': case 'cancer-drain': case 'drain-kuota': {
+    case 'bug5': case 'glitch-drain': case 'drain-kuota': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15277,7 +15119,7 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'bug3': case 'cancer-blank': {
+    case 'bug3': case 'glitch-blank': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15344,8 +15186,8 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'cancer-freeze': 
-    case 'cancer-frezee': {
+    case 'glitch-freeze': 
+    case 'glitch-frezee': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15411,8 +15253,8 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'bug4': case 'cancer-combo': case 'xspam': 
-    case 'cancer-spam': {
+    case 'bug4': case 'glitch-combo': case 'xspam': 
+    case 'glitch-spam': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
@@ -15479,7 +15321,7 @@ Bot Create By @ItssDric
     }
     break
     //═══════════════════════════════════//
-    case 'bug6': case 'cancer-ios': {
+    case 'bug6': case 'glitch-ios': {
         if (!isOwner && !isMurbug) return reply('khusus owner & user Murbug')
         if (!q) return reply(`${noticenya}*Contoh: ${prefix + command} 628xxx*`);
         let args = q.split(" ")
